@@ -18,14 +18,14 @@ const longestWorld = (sentence) => {
         }
         desiredIndex = i
     }
-    return words[desiredIndex]
+    return words[desiredIndex].replace(/[^a-zA-Z]/g, '')
 }
 
 const exec = (callback) => {
     const startTime = performance.now();
     const result = callback()
-    console.log();
+    console.log(`result = ${result}, exec time = ${performance.now() - startTime}`);
 }
 
-const input = "Smart people learn from everything and everyone, average people from their experience, stupid people already, have all the answers"
+const input = "Smart people learn from everything and everyone, average people from their experience, stupid people already, have all the answers "
 exec(() => longestWorld(input.repeat(100)))
